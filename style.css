@@ -7,6 +7,10 @@ a {
     text-decoration: none;     
 }
 
+html, body {
+    min-height: 100%;
+}
+
 body {
     background: linear-gradient(125deg, #fc3f5f 0%, #7d61ff 100.32%);
     font-family: 'Poppins', sans-serif;
@@ -52,8 +56,16 @@ body {
 .header-btn {
     display: flex;
     justify-content: flex-end;
-
 }
+
+.header-menu {
+    display: none;
+}
+
+.header-menu .material-icons {
+    color: white;
+}
+
 .title {
     color: rgb(242, 244, 247);
     font-size: 72px;
@@ -82,6 +94,7 @@ body {
     min-width: 239px;
 
 }
+
 .loader {
     margin-top: 64px;
     padding: 16px;
@@ -91,10 +104,20 @@ body {
     justify-content: center;
 
 }
+.header-logo:hover  {
+    transform: translateY(-3px);
+}
+
 .header-nav__link {
     color: rgb(160, 163, 167);
     font-size: 14px;
     font-weight: 300;
+    transition: .2s all ease-in-out;
+}
+
+.header-nav__link:hover {
+    color: #fff;
+    transform: scale(1.5);
 }
 
 .header-btn__link {
@@ -110,4 +133,76 @@ body {
     color: rgb(36, 40, 46);
     font-size: 14px;
     font-weight: 600;
+    transition: .2s all ease-in-out;
+}
+
+.header-btn__link:hover {
+    transform: translateY(-3px);
+}
+
+#headerIcon {
+    display: none;
+}
+
+@media screen and (max-width: 992px)  {
+    .header-btn {
+        display: none;
+    }
+    .main  {
+        padding: 50px 20px;
+    }
+    .title {
+        font-size: 40px;
+        color: blue;
+    }
+    .desc {
+        margin-bottom: 40px;
+        color: yellow;
+        
+     }
+     .loader {
+        margin-top: 30px;
+     }
+}
+
+@media screen and (max-width: 768px)  {
+    .header-nav {
+       position: fixed;
+       width: 70%;
+       height: 100%;
+       top: 0;
+       left: 0;
+       background: rgb(0 0 0 / 80%);
+       flex-direction: column;
+       align-items: center;
+       transition: .2s all ease-in-out;
+       transform: translateX(-120%);
+    }
+
+    #headerIcon:checked ~ .header-nav  {
+        transform: translateX(0);
+    }
+    .header-nav__link {
+        color: #fff;
+    }
+    .header-menu {
+        display: flex;
+    }
+    .header-btn {
+        position: fixed;
+        display: flex;
+        transition: .2s all ease-in-out;
+        bottom: 20px;
+        left: calc(50% - 15%);
+        transform: translateX(-50%) scale(0);
+    }
+    #headerIcon:checked ~ .header-btn {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+@media screen and (max-width: 592px)  {
+    body, .header {
+        padding: 20px;
+    }
 }
